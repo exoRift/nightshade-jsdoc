@@ -4,5 +4,11 @@
 # The dependencies
 node_modules/
 
-# The compiled site for testing
+# Compiled site for testing
 build/
+public/index.html
+public/manifest.json
+public/favicon.ico
+src/assets/banner.*
+src/static/util/docdata.json
+src/static/util/README.md

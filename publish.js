@@ -19,7 +19,8 @@ exports.publish = async function (taffyData) {
       desc = 'A docsite running on the Nightshade template',
       assets: {
         icon,
-        banner
+        banner,
+        readme
       } = {},
       theme: {
         foreground = '#000000',
@@ -34,23 +35,22 @@ exports.publish = async function (taffyData) {
 
   if (!destination) console.error('ERROR: Please supply a proper output directory')
 
-  const outdir = path.join(env.pwd, path.normalize(destination))
+  await compileDocData(data, {
+    name,
+    longName,
+    desc,
+    assets: {
+      icon: icon ? path.join(env.pwd, path.normalize(icon)) : null,
+      banner: banner ? path.join(env.pwd, path.normalize(banner)) : null,
+      readme: readme ? path.join(env.pwd, path.normalize(readme)) : null
+    },
+    theme: {
+      foreground,
+      background
+    }
+  })
 
-  // await compileDocData(data, {
-  //   name,
-  //   longName,
-  //   desc,
-  //   assets: {
-  //     icon,
-  //     banner
-  //   },
-  //   theme: {
-  //     foreground,
-  //     background
-  //   }
-  // })
+  await buildSite(path.join(env.pwd, path.normalize(destination)))
 
-  // await buildSite(outdir)
-
-  // await cleanup()
+  await cleanup()
 }

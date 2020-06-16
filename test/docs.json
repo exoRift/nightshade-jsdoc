@@ -9,7 +9,8 @@
       "desc": "Hi, yes this is good lib",
       "assets": {
         "icon": "test/assets/favicon.ico",
-        "banner": "test/assets/banner.png"
+        "banner": "test/assets/banner.png",
+        "readme": "test/README.md"
       },
       "theme": {
         "foreground": "#123456",
