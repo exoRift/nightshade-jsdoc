@@ -1,7 +1,7 @@
 const fs = require('fs').promises
 const ejs = require('ejs')
 
-const baseManifest = require('./src/template/manifest.json')
+const baseManifest = require('../template/manifest.json')
 
 function compileDocData (data, opts) {
   const indexData = {
@@ -19,12 +19,12 @@ function compileDocData (data, opts) {
 
   return Promise.all([
     fs.readFile('src/template/index.ejs') // Index
-      .then((template) => ejs.render('src/template/index.ejs', indexData))
+      .then((template) => ejs.render(template, indexData))
       .then((rendered) => fs.writeFile('src/static/public/index.html', rendered, 'utf8')),
     fs.writeFile('src/static/public/manifest.json', JSON.stringify(manifest), 'utf8'), // Manifest
     fs.readFile(opts.assets.icon || 'src/template/favicon.ico') // Favicon
       .then((buffer) => fs.writeFile('src/static/public/favicon.ico', buffer)),
-    fs.writeFile('src/static/pages/util/docdata.json', JSON.stringify(data), 'utf8')
+    fs.writeFile('src/static/pages/util/docdata.json', JSON.stringify(data), 'utf8') // Doclet data
   ])
 }
 

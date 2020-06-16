@@ -6,7 +6,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "node ./publish.js && npm start"
+    "export": "jsdoc -r -c test/docs.json",
+    "test": "npm run export && npm start"
   },
   "repository": {
     "type": "git",

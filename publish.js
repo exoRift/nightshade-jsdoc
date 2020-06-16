@@ -1,4 +1,6 @@
+const env = require('jsdoc/env')
 const path = require('jsdoc/path')
+const helper = require('jsdoc/util/templateHelper')
 
 const {
   compileDocData,
@@ -6,43 +8,49 @@ const {
   cleanup
 } = require('./src/util/')
 
-exports.publish = async function (data, opts) {
+exports.publish = async function (taffyData) {
+  taffyData = helper.prune(taffyData)
+  const data = taffyData().get()
+
   const {
     manifest: {
-      name,
-      longName,
-      desc,
+      name = 'Nightshade Docsite',
+      longName = 'Nightshade Docsite',
+      desc = 'A docsite running on the Nightshade template',
       assets: {
         icon,
         banner
       } = {},
       theme: {
-        foreground,
-        background
+        foreground = '#000000',
+        background = '#ffffff'
       } = {}
-    } = {},
-    outputDir
-  } = opts
+    } = {}
+  } = env.conf.templates
 
-  if (!outputDir) console.error('ERROR: Please supply a proper output directory')
+  const {
+    destination
+  } = env.opts
 
-  const normalOutputDir = path.normalize(outputDir)
+  if (!destination) console.error('ERROR: Please supply a proper output directory')
 
-  await compileDocData(data, {
-    name,
-    longName,
-    desc,
-    assets: {
-      icon,
-      banner
-    },
-    theme: {
-      foreground,
-      background
-    }
-  })
+  const outdir = path.join(env.pwd, path.normalize(destination))
 
-  await buildSite(normalOutputDir)
+  // await compileDocData(data, {
+  //   name,
+  //   longName,
+  //   desc,
+  //   assets: {
+  //     icon,
+  //     banner
+  //   },
+  //   theme: {
+  //     foreground,
+  //     background
+  //   }
+  // })
 
-  await cleanup()
+  // await buildSite(outdir)
+
+  // await cleanup()
 }
