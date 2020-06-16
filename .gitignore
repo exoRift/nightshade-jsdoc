@@ -1,0 +1,8 @@
+# Text editor data
+.vscode/
+
+# The dependencies
+node_modules/
+
+# The compiled site for testing
+build/
