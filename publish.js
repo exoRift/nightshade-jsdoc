@@ -13,20 +13,19 @@ exports.publish = async function (taffyData) {
   const data = taffyData().get()
 
   const {
-    manifest: {
-      name = 'Nightshade Docsite',
-      longName = 'Nightshade Docsite',
-      desc = 'A docsite running on the Nightshade template',
-      assets: {
-        icon,
-        banner,
-        readme
-      } = {},
-      theme: {
-        foreground = '#000000',
-        background = '#ffffff'
-      } = {}
-    } = {}
+    name = 'Nightshade Docsite',
+    longName = 'Nightshade Docsite',
+    desc = 'A docsite running on the Nightshade template',
+    assets: {
+      icon,
+      banner,
+      readme
+    } = {},
+    theme: {
+      foreground = '#000000',
+      background = '#ffffff'
+    } = {},
+    repository = ''
   } = env.conf.templates
 
   const {
@@ -47,7 +46,8 @@ exports.publish = async function (taffyData) {
     theme: {
       foreground,
       background
-    }
+    },
+    repository
   })
 
   await buildSite(path.join(env.pwd, path.normalize(destination)))

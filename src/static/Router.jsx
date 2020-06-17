@@ -4,14 +4,14 @@ import {
   Route
 } from 'react-router-dom'
 
-// import Navbar from './util/Navbar.jsx.js'
+import Navbar from './util/Navbar.jsx'
 
 import routes from './util/routes.js'
 
 export default function Routes () {
   return (
     <Router>
-      {/* <Navbar/> */}
+      <Navbar/>
 
       <div id='app'>
         {routes.map((route, index) => (

@@ -3,19 +3,17 @@
     "include": ["test/lib/", "test/README.md"]
   },
   "templates": {
-    "manifest": {
-      "name": "Goodlib",
-      "longName": "Very good lib",
-      "desc": "Hi, yes this is good lib",
-      "assets": {
-        "icon": "test/assets/favicon.ico",
-        "banner": "test/assets/banner.png",
-        "readme": "test/README.md"
-      },
-      "theme": {
-        "foreground": "#123456",
-        "background": "#654321"
-      }
+    "name": "Goodlib",
+    "longName": "Very good lib",
+    "desc": "Hi, yes this is good lib",
+    "assets": {
+      "icon": "test/assets/favicon.ico",
+      "banner": "test/assets/banner.png",
+      "readme": "test/README.md"
+    },
+    "theme": {
+      "foreground": "#123456",
+      "background": "#654321"
     }
   },
   "opts": {

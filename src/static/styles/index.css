@@ -11,3 +11,88 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+a {
+  transition: .2s;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+#app {
+  padding: .5% 1.5% 0 1.5%;
+}
+
+#navbar {
+  transition: .4s;
+  position: absolute;
+  width: 1vw;
+  height: 100vh;
+  background: black;
+  opacity: .2;
+  overflow: hidden;
+  font-size: 2vw;
+  border-radius: 0 500px 500px 0;
+}
+#navbar:hover {
+  width: 10vw;
+  background: black;
+  opacity: .9;
+  border-radius: 0 25px 25px 0;
+}
+
+#navbar img {
+  width: 10em;
+  margin-left: -50%;
+}
+
+#navbar .nav-btn-container {
+  transition: .2s;
+  margin-top: 1%;
+  transform: translateX(20%);
+  max-height: 87vh;
+  overflow: hidden;
+}
+#navbar:hover .nav-btn-container {
+  transform: none;
+  overflow-y: auto;
+}
+
+#navbar .section {
+  border-bottom: 1px var(--dark) solid;
+}
+
+#navbar .nav-btn {
+  margin-left: 5%;
+}
+
+#navbar .nav-btn[active='true'] {
+  color: var(--orange);
+}
+#navbar .nav-btn[active='true']:hover {
+  color: var(--red);
+}
+
+*::-webkit-scrollbar {
+  width: .9rem;
+}
+
+*::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 10px 10px var(--dark);
+  border: solid 5px transparent;
+  border-radius: 10px;
+}
+
+*::-webkit-scrollbar-thumb {
+  box-shadow: inset 0 0 10px 10px var(--info);
+  border: solid 5px transparent;
+  border-radius: 10px;
+}
+*::-webkit-scrollbar-thumb:hover {
+  box-shadow: inset 0 0 10px 10px var(--warning);
+}
+
+*::-webkit-scrollbar-corner {
+  opacity: 0;
+}

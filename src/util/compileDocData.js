@@ -19,6 +19,11 @@ function compileDocData (data, opts) {
     background_color: opts.theme.background
   }
 
+  const writeData = {
+    repository: opts.repository,
+    doclets: data
+  }
+
   return Promise.all([
     fs.readFile('src/template/index.ejs', 'utf8') // Index
       .then((template) => ejs.render(template, indexData))
@@ -26,9 +31,9 @@ function compileDocData (data, opts) {
     fs.writeFile('public/manifest.json', JSON.stringify(manifest)), // Manifest
     fs.readFile(opts.assets.icon || 'src/template/favicon.ico') // Favicon
       .then((buffer) => fs.writeFile('public/favicon.ico', buffer)),
-    opts.assets.banner ? fs.readFile(opts.assets.banner) // Banner
-      .then((buffer) => fs.writeFile('src/assets/banner.' + opts.assets.banner.match(extensionRegex)[1], buffer)) : null,
-    fs.writeFile('src/static/util/docdata.json', JSON.stringify(data)), // Doclet data
+    fs.readFile(opts.assets.banner || 'src/template/banner.png') // Banner
+      .then((buffer) => fs.writeFile('src/assets/banner.' + opts.assets.banner.match(extensionRegex)[1], buffer)),
+    fs.writeFile('src/static/util/docdata.json', JSON.stringify(writeData)), // Doclet data
     opts.assets.readme ? fs.readFile(opts.assets.readme, 'utf8') // README
       .then((readme) => fs.writeFile('src/static/util/README.md', readme)) : fs.writeFile('src/static/util/README.md', '')
   ])
