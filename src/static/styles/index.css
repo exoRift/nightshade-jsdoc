@@ -32,24 +32,28 @@ a:hover {
   background: black;
   opacity: .2;
   overflow: hidden;
-  font-size: 2vw;
+  font-size: 2rem;
   border-radius: 0 500px 500px 0;
 }
 #navbar:hover {
-  width: 10vw;
+  width: 15vw;
   background: black;
   opacity: .9;
   border-radius: 0 25px 25px 0;
 }
 
 #navbar img {
-  width: 10em;
-  margin-left: -50%;
+  transition: .3s;
+  width: 15vw;
+  margin-top: -2em;
+}
+#navbar:hover img {
+  margin-top: 0em;
 }
 
 #navbar .nav-btn-container {
   transition: .2s;
-  margin-top: 1%;
+  margin: 1% 0 0 5%;
   transform: translateX(20%);
   max-height: 87vh;
   overflow: hidden;
@@ -59,11 +63,19 @@ a:hover {
   overflow-y: auto;
 }
 
-#navbar .section {
+#navbar .section.main {
+  margin: 0 20% 7% 0;
+  border-bottom: 1px var(--dark) solid;
+}
+
+#navbar .header {
+  font-size: 2.5rem;
+  padding: 0 1em 0 0;
   border-bottom: 1px var(--dark) solid;
 }
 
 #navbar .nav-btn {
+  display: block;
   margin-left: 5%;
 }
 

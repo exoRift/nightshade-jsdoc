@@ -92,14 +92,14 @@ class Module extends Test {
 }
 
 /**
- * An interface
- * @typedef {interfDef}
- * @prop    {Number}    num A number property
- * @prop    {String}    str
+ * A typedef
+ * @typedef {Object} objType
+ * @prop    {Number} num     A number property
+ * @prop    {String} str
  */
 
 /**
-  * @callback          call
+  * @callback          callbackDef
   * @param    {Object} param      A param
   * @prop     {String} param.prop A prop
   */
@@ -107,7 +107,7 @@ class Module extends Test {
 /**
  * A global function
  * @param   {*} param The param
- * @returns {*} The supplied param
+ * @returns {*}       The supplied param
  */
 function globalFunction (param) {
   return param
