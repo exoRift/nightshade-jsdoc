@@ -22,15 +22,14 @@ export default function Routes () {
 
       <div id='app'>
         {routes
-          .concat(processed.pages)
+          .concat(processed.navs)
           .map((route, index) => (
             <Route
               key={index}
               path={route.path}
               exact={route.exact}
-              render={() => (
-                <route.Component data={processed}/>
-              )}
+              component={route.Component}
+              render={route.render}
             />
           ))}
       </div>

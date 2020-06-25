@@ -1,32 +1,61 @@
 import React from 'react'
 
-import Navbtn from './Navbtn.jsx'
+import ClassPage from './ClassPage.jsx'
 
 function process (data) {
   const processed = {
     repository: data.repository,
-    sections: {
-      class: [],
-      global: []
-    },
-    pages: []
+    navs: [],
+    doclets: {
+      mainline: [],
+      global: [],
+      other: []
+    }
   }
 
   for (const doclet of data.doclets) {
-    const kind = doclet.kind === 'typedef' || (doclet.meta && doclet.meta.code.name === 'globalFunction') ? 'global' : doclet.kind
+    const scope = doclet.scope === 'global' ? (['class', 'function'].includes(doclet.kind) ? 'mainline' : 'global') : doclet.scope
+    const path = `/${scope}/${doclet.kind}/` + doclet.name
 
-    if (['class', 'global'].includes(kind)) {
-      const path = `/${kind}/` + doclet.name
+    doclet.nav = path
 
-      processed.sections[kind].push(<Navbtn path={path} name={doclet.longname} key={doclet.___id}/>)
+    switch (scope) {
+      case 'global': {
+        processed.doclets.global.push(doclet)
 
-      const Page = null
+        break
+      }
 
-      processed.pages.push({
+      case 'instance': {
+        const parent = processed.doclets.mainline.find((d) => d.name === doclet.memberof)
+
+        parent[doclet.kind === 'function' ? 'methods' : 'members'].push(doclet)
+
+        break
+      }
+
+      case 'mainline':
+        if (doclet.kind === 'class') {
+          doclet.methods = []
+          doclet.members = []
+        }
+
+        processed.doclets.mainline.push(doclet)
+
+        break
+
+      default:
+        processed.doclets.other.push(doclet)
+
+        break
+    }
+
+    if (scope === 'global' || scope === 'mainline') {
+      processed.navs.push({
         path,
         exact: true,
         name: doclet.name,
-        Component: Page
+        render: () => <ClassPage data={processed} doclet={doclet}/>
       })
     }
   }

@@ -105,16 +105,16 @@ class Module extends Test {
   */
 
 /**
- * A global function
+ * A mainline function
  * @param   {*} param The param
  * @returns {*}       The supplied param
  */
-function globalFunction (param) {
+function mainlineFunction (param) {
   return param
 }
 
 module.exports = {
   Test,
-  globalFunction,
+  mainlineFunction,
   Module
 }

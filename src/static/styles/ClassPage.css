@@ -1,0 +1,15 @@
+#page {
+  padding: 1%;
+}
+
+.header .name {
+  border-left: var(--class-color) 7px solid;
+  padding-left: .3%;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.desc {
+  font-size: 1rem;
+  padding-left: 1%;
+}

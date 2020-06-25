@@ -1,3 +1,9 @@
+:root {
+  --theme: #662eff;
+  --theme-dark: #6600ff;
+  --theme-light: #6666ff;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -14,10 +20,16 @@ code {
 
 a {
   transition: .2s;
+  color: var(--theme-light);
 }
 
 a:hover {
   text-decoration: none;
+  color: var(--theme-dark)
+}
+
+.head {
+  display: block;
 }
 
 #app {
@@ -53,7 +65,7 @@ a:hover {
 
 #navbar .nav-btn-container {
   transition: .2s;
-  margin: 1% 0 0 5%;
+  margin: 8% 0 0 5%;
   transform: translateX(20%);
   max-height: 87vh;
   overflow: hidden;
@@ -63,27 +75,51 @@ a:hover {
   overflow-y: auto;
 }
 
-#navbar .section.main {
+#navbar .section.info {
   margin: 0 20% 7% 0;
   border-bottom: 1px var(--dark) solid;
 }
 
 #navbar .header {
   font-size: 2.5rem;
-  padding: 0 1em 0 0;
+  margin-right: .5em;
   border-bottom: 1px var(--dark) solid;
+}
+
+#navbar .subheader {
+  font-size: 1.6rem;
+  color: var(--info);
+  margin-left: 3%;
+}
+#navbar .subheader::after {
+  content: ':';
+}
+
+#navbar .method-container {
+  font-size: 1.5rem;
+  margin-left: 9%;
+  border-left: goldenrod 2px solid;
+}
+
+#navbar .method-container .nav-btn {
+  color: var(--green);
+  margin-left: 4%;
+}
+#navbar .method-container .nav-btn:hover {
+  color: var(--teal);
 }
 
 #navbar .nav-btn {
   display: block;
-  margin-left: 5%;
+  margin-left: 6%;
 }
 
 #navbar .nav-btn[active='true'] {
-  color: var(--orange);
+  color: var(--red);
+  transform: translate(-.15vw, -.15vw);
 }
 #navbar .nav-btn[active='true']:hover {
-  color: var(--red);
+  color: var(--orange);
 }
 
 *::-webkit-scrollbar {

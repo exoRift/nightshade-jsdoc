@@ -1,0 +1,41 @@
+:root {
+  --class-color: #68b5ff;
+}
+
+.doclet {
+  background: var(--dark);
+  margin-top: 1%;
+  padding: 1%;
+  border-radius: 25px;
+}
+
+.doclet.class {
+  border: white 1px solid;
+}
+
+.constructor {
+  font-size: 1.5rem;
+}
+.constructor .new {
+  color: var(--yellow);
+  margin-right: .5%;
+}
+.constructor .name {
+  color: var(--info);
+}
+
+.param-container {
+  display: inline;
+}
+.param-container::before {
+  content: '(';
+}
+.param-container::after {
+  content: ')';
+}
+.param-container .param {
+  color: var(--green);
+}
+.param-container .comma {
+  margin-right: .5%;
+}
