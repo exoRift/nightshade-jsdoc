@@ -5,6 +5,8 @@ import Doclet from './Doclet.jsx'
 import '../styles/ClassPage.css'
 
 function ClassPage (props) {
+  document.title = `${props.data.name} - ${props.doclet.name}`
+
   return (
     <div id='page'>
       <div className='header'>

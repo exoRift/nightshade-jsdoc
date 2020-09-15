@@ -21,6 +21,7 @@ function compileDocData (data, opts) {
 
   const writeData = {
     repository: opts.repository,
+    name: opts.name,
     doclets: data
   }
 

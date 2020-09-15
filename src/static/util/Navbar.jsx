@@ -10,7 +10,7 @@ function buildNav (kind) {
     if (kind === 'any' || d.kind === kind) {
       a.push(
         <div className={'nav-container ' + d.name} key={d.___id}>
-          <Navbtn path={d.nav} name={d.longname}/>
+          <Navbtn path={d.nav} name={d.name}/>
 
           {d.kind === 'class' && d.methods.length
             ? (

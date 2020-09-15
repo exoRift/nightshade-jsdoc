@@ -11,7 +11,7 @@ import data from './util/docdata.json'
 
 import {
   process
-} from './util/process.jsx'
+} from './util/utils.jsx'
 
 const processed = process(data)
 

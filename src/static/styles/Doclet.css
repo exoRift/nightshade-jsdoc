@@ -23,19 +23,35 @@
 .constructor .name {
   color: var(--info);
 }
+.constructor .extends {
+  margin-left: .5%;
+}
+.constructor a.extends:hover {
+  opacity: .6;
+}
+.constructor .extends::before {
+  content: 'extends';
+  margin-right: .4%;
+  color: gray;
+}
 
-.param-container {
+.doclet .desc {
+  font-size: 1.3rem;
+  font-style: italic;
+}
+
+.con-param-container {
   display: inline;
 }
-.param-container::before {
+.con-param-container::before {
   content: '(';
 }
-.param-container::after {
+.con-param-container::after {
   content: ')';
 }
-.param-container .param {
+.con-param-container .param {
   color: var(--green);
 }
-.param-container .comma {
+.con-param-container .comma {
   margin-right: .5%;
 }

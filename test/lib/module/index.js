@@ -12,6 +12,7 @@ class Test {
 
 /**
  * A module class
+ * @extends Test
  */
 class Module extends Test {
   /**
@@ -74,10 +75,10 @@ class Module extends Test {
 
   /**
    * A promise method
-   * @param   {interfDef} interf The defined interface
+   * @param   {interf} interfP The defined interface
    * @returns {Promise}
    */
-  returnPromise (interf) {
+  returnPromise (interfP) {
     return new Promise()
   }
 
@@ -93,8 +94,8 @@ class Module extends Test {
 
 /**
  * A typedef
- * @typedef {Object} objType
- * @prop    {Number} num     A number property
+ * @typedef {Object} interf
+ * @prop    {Number} num    A number property
  * @prop    {String} str
  */
 
